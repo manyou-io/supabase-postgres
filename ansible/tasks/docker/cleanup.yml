@@ -1,7 +1,6 @@
 - name: Cleanup - remove build dependencies
   apt:
     pkg:
-      - python3
       - rsync
       - ca-certificates
       - build-essential
