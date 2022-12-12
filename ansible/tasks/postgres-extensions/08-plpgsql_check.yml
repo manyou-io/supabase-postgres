@@ -1,11 +1,4 @@
 # plpgsql_check
-- name: plpgsql_check - download & install dependencies
-  apt:
-    pkg:
-      - libicu-dev
-    update_cache: yes
-    install_recommends: no
-
 - name: plpgsql_check - download latest release
   get_url:
     url: "https://github.com/okbob/plpgsql_check/archive/refs/tags/v{{ plpgsql_check_release }}.tar.gz"

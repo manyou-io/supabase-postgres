@@ -18,8 +18,7 @@
       - libtinfo5
       - libc++abi1
       - ninja-build
-      - python
-    update_cache: yes
+      - python-is-python2
     install_recommends: no
 
 - name: plv8 - download latest release

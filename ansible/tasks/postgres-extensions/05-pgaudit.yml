@@ -1,12 +1,4 @@
 # pgAudit
-- name: pgAudit - download & install dependencies
-  apt:
-    pkg:
-      - libssl-dev
-      - libkrb5-dev
-    update_cache: yes
-    install_recommends: no
-
 - name: pgAudit - download latest release
   get_url:
     url: "https://github.com/pgaudit/pgaudit/archive/refs/tags/{{ pgaudit_release }}.tar.gz"

@@ -1,17 +1,4 @@
 # pgsql-http
-- name: pgsql-http - libcurl4 package
-  apt:
-    pkg:
-      - libcurl4
-    state: absent
-
-- name: pgsql-http - download & install dependencies
-  apt:
-    pkg:
-      - libcurl4-gnutls-dev
-    update_cache: yes
-    install_recommends: no
-
 - name: pgsql-http - download latest release
   get_url:
     url: "https://github.com/pramsey/pgsql-http/archive/refs/tags/v{{ pgsql_http_release }}.tar.gz"

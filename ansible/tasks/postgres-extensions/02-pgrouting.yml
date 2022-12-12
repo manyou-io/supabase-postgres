@@ -3,8 +3,6 @@
   apt:
     pkg:
       - libboost-all-dev
-    update_cache: yes
-    cache_valid_time: 3600
     install_recommends: no
 
 - name: pgRouting - download latest release

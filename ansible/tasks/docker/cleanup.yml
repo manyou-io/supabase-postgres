@@ -7,12 +7,24 @@
       - build-essential
       - postgresql-server-dev-{{ postgresql_major }}
       - curl
-      - git-core
+      - git
       - gpp
       - cpp
       - pkg-config
       - apt-transport-https
       - cmake
       - ninja-build
-      - python
+      - python-is-python2
+      - zlib1g-dev
+      - liblzo2-dev
+      - libmsgpack-dev
+      - libzmq3-dev
+      - libevent-dev
+      - libmecab-dev
+      # from 08-plpgsql_check
+      - libicu-dev
+      # from pg_net & pgsql-http
+      - libcurl4-openssl-dev
+    autoremove: true
+    purge: true
     state: absent

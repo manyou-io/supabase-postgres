@@ -1,4 +1,9 @@
 # groonga and pgroonga
+- name: groonga - download & install dependencies
+  apt:
+    pkg:
+      - groonga-normalizer-mysql
+    install_recommends: no
 
 - name: groonga - download groonga
   get_url:

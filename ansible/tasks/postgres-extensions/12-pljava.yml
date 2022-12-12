@@ -6,7 +6,6 @@
       - default-jre
       - default-jdk
       - libssl-dev
-    update_cache: yes
     install_recommends: no
 
 - name: pljava - download latest release
@@ -47,7 +46,6 @@
   apt:
     pkg:
       - default-jdk-headless
-    update_cache: yes
     install_recommends: no
 
 - name: Hold jre package 
