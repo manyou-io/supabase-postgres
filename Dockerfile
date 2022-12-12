@@ -13,7 +13,7 @@ RUN --mount=type=bind,source=ansible,target=/ansible \
     apt-get install -y --no-install-recommends locales; \
     sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen; \
     locale-gen; \
-    apt-get purge --auto-remove -y ansible python3; \
+    SUDO_FORCE_REMOVE=yes apt-get purge --auto-remove -y ansible python3 sudo; \
     apt-get clean; \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
