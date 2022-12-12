@@ -3,7 +3,7 @@ name: Build & Push Docker Image
 on:
   push:
     tags:
-      - "*"
+      - "v*"
 
 env:
   IMAGE_NAME: supabase-postgres
