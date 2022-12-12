@@ -1,75 +1,94 @@
-- name: Install plv8
-  import_tasks: tasks/postgres-extensions/13-plv8.yml
+# - name: Install plv8
+#   import_tasks: tasks/postgres-extensions/13-plv8.yml
 
-- name: Install pg_jsonschema
-  import_tasks: tasks/postgres-extensions/22-pg_jsonschema.yml
+# - name: Install pg_jsonschema
+#   import_tasks: tasks/postgres-extensions/22-pg_jsonschema.yml
 
-- name: Install postgis
-  import_tasks: tasks/postgres-extensions/01-postgis.yml
+# - name: Install postgis
+#   import_tasks: tasks/postgres-extensions/01-postgis.yml
 
-- name: Install pgrouting
-  import_tasks: tasks/postgres-extensions/02-pgrouting.yml
+# - name: Install pgrouting
+#   import_tasks: tasks/postgres-extensions/02-pgrouting.yml
 
-- name: Install pgtap
-  import_tasks: tasks/postgres-extensions/03-pgtap.yml
+# - name: Install pgtap
+#   import_tasks: tasks/postgres-extensions/03-pgtap.yml
 
+# Required in "migrations/schema.sql"
 - name: Install pg_cron
   import_tasks: tasks/postgres-extensions/04-pg_cron.yml
 
+# Required in "shared_preload_libraries"
 - name: Install pgaudit
   import_tasks: tasks/postgres-extensions/05-pgaudit.yml
 
+# Required in "migrations/schema.sql"
 - name: Install pgjwt
   import_tasks: tasks/postgres-extensions/06-pgjwt.yml
 
+# Non-required
 - name: Install pgsql-http
   import_tasks: tasks/postgres-extensions/07-pgsql-http.yml
 
+# Required in "shared_preload_libraries"
 - name: Install plpgsql_check
   import_tasks: tasks/postgres-extensions/08-plpgsql_check.yml
 
+# Non-required
 - name: Install pg-safeupdate
   import_tasks: tasks/postgres-extensions/09-pg-safeupdate.yml
 
-- name: Install timescaledb
-  import_tasks: tasks/postgres-extensions/10-timescaledb.yml
+# Required in "shared_preload_libraries", NEEDS EXPLICIT REMOVAL
+# - name: Install timescaledb
+#   import_tasks: tasks/postgres-extensions/10-timescaledb.yml
 
-- name: Install wal2json
-  import_tasks: tasks/postgres-extensions/11-wal2json.yml
+# Non-required
+# - name: Install wal2json
+#   import_tasks: tasks/postgres-extensions/11-wal2json.yml
 
-- name: Install pljava
-  import_tasks: tasks/postgres-extensions/12-pljava.yml
+# Non-required
+# - name: Install pljava
+#   import_tasks: tasks/postgres-extensions/12-pljava.yml
 
-- name: Install pg_plan_filter
-  import_tasks: tasks/postgres-extensions/14-pg_plan_filter.yml
+# Non-required
+# - name: Install pg_plan_filter
+#   import_tasks: tasks/postgres-extensions/14-pg_plan_filter.yml
 
+# Required in "migrations/schema.sql"
 - name: Install pg_net
   import_tasks: tasks/postgres-extensions/15-pg_net.yml
 
-- name: Install rum
-  import_tasks: tasks/postgres-extensions/16-rum.yml
+# Non-required
+# - name: Install rum
+#   import_tasks: tasks/postgres-extensions/16-rum.yml
 
-- name: Install pg_hashids
-  import_tasks: tasks/postgres-extensions/17-pg_hashids.yml
+# Non-required
+# - name: Install pg_hashids
+#   import_tasks: tasks/postgres-extensions/17-pg_hashids.yml
 
+# Required in "migrations/schema.sql"
 - name: Install pgsodium
   import_tasks: tasks/postgres-extensions/18-pgsodium.yml
 
+# Required in "migrations/schema.sql"
 - name: Install pg_graphql
   import_tasks: tasks/postgres-extensions/19-pg_graphql.yml
 
+# Required in "shared_preload_libraries"
 - name: Install pg_stat_monitor
   import_tasks: tasks/postgres-extensions/20-pg_stat_monitor.yml
 
+# Required in "shared_preload_libraries"
 - name: Install auto_explain
   import_tasks: tasks/postgres-extensions/21-auto_explain.yml
 
 # - name: Install vault
 #   import_tasks: tasks/postgres-extensions/23-vault.yml
 
-- name: Install PGroonga
-  import_tasks: tasks/postgres-extensions/24-pgroonga.yml
+# Non-required
+# - name: Install PGroonga
+#   import_tasks: tasks/postgres-extensions/24-pgroonga.yml
 
+# Official utils
 - name: Install wrappers
   import_tasks: tasks/postgres-extensions/25-wrappers.yml
 

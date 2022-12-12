@@ -1,21 +1,20 @@
-ARG VERSION=14.1
+ARG VERSION="14.6-bullseye"
 
 FROM postgres:$VERSION
 
-COPY ansible/ /tmp/ansible/
-
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt update && \
-    apt install -y ansible sudo git && \
-    apt -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade && \
-    cd /tmp/ansible && \
-    ansible-playbook -e '{"async_mode": false}' playbook-docker.yml && \
-    apt -y autoremove && \
-    apt -y autoclean && \
-    apt install -y default-jdk-headless locales && \
-    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen && \
+RUN --mount=type=bind,source=ansible,target=/ansible \
+    set -ex; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends ansible sudo git; \
+    cd /ansible; \
+    ansible-playbook -e '{"async_mode": false}' playbook-docker.yml; \
+    apt-get install -y --no-install-recommends locales; \
+    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen; \
+    locale-gen; \
+    apt-get purge --auto-remove -y ansible git; \
+    apt-get clean; \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 ENV LANGUAGE en_US.UTF-8
