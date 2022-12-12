@@ -20,11 +20,14 @@
       - libzmq3-dev
       - libevent-dev
       - libmecab-dev
-      # from 08-plpgsql_check
+      # from plpgsql_check
       - libicu-dev
       # from pg_net & pgsql-http
       - libcurl4-openssl-dev
       - libcurl4
+      # from pgsodium
+      - libsodium-dev
+      - libsodium23
     update_cache: yes
     install_recommends: no
 

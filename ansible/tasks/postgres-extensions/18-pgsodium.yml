@@ -1,40 +1,9 @@
-# libsodium and pgsodium
+# pgsodium
 - name: determine postgres bin directory
   shell: pg_config --bindir
   register: pg_bindir_output
 - set_fact: 
     pg_bindir: "{{ pg_bindir_output.stdout }}"
-
-- name: libsodium - download libsodium
-  get_url:
-    url: "https://download.libsodium.org/libsodium/releases/libsodium-{{ libsodium_release }}.tar.gz"
-    dest: /tmp/libsodium-{{ libsodium_release }}.tar.gz
-    checksum: "{{ libsodium_release_checksum }}"
-    timeout: 60
-
-- name: libsodium - unpack archive
-  unarchive:
-    remote_src: yes
-    src: /tmp/libsodium-{{ libsodium_release }}.tar.gz
-    dest: /tmp
-  become: yes
-
-- name: libsodium - configure
-  shell:
-    cmd: ./configure
-    chdir: /tmp/libsodium-{{ libsodium_release }}
-  become: yes
-
-- name: libsodium - build
-  make:
-    chdir: /tmp/libsodium-{{ libsodium_release }}
-  become: yes
-
-- name: libsodium - install
-  make:
-    chdir: /tmp/libsodium-{{ libsodium_release }}
-    target: install
-  become: yes
 
 - name: pgsodium - download pgsodium
   get_url:

@@ -24,6 +24,8 @@
       - libicu-dev
       # from pg_net & pgsql-http
       - libcurl4-openssl-dev
+      # from pgsodium
+      - libsodium-dev
     autoremove: true
     purge: true
     state: absent
