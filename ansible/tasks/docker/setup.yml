@@ -20,6 +20,9 @@
       - libzmq3-dev
       - libevent-dev
       - libmecab-dev
+      # - systemtap-sdt-dev
+      # - ccache
+      # - clang
       # from plpgsql_check
       - libicu-dev
       # from pg_net & pgsql-http

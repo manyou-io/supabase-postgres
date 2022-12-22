@@ -6,7 +6,7 @@ version: "3.8"
 
 services:
   db:
-    image: supabase/postgres:14.1.0.83-rc0
+    image: supabase/postgres:15.1.0.11
     restart: "no"
     ports:
       - 5478:5432
@@ -38,7 +38,7 @@ services:
     command: pg_prove /tests/test.sql
 
   dbmate:
-    image: ghcr.io/amacneil/dbmate:1
+    image: ghcr.io/amacneil/dbmate:main
     depends_on:
       db:
         condition: service_healthy
