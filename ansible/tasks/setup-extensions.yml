@@ -33,7 +33,7 @@
 - name: Install plpgsql_check
   import_tasks: tasks/postgres-extensions/08-plpgsql_check.yml
 
-# Non-required
+# Required
 - name: Install pg-safeupdate
   import_tasks: tasks/postgres-extensions/09-pg-safeupdate.yml
 
@@ -89,8 +89,8 @@
 #   import_tasks: tasks/postgres-extensions/24-pgroonga.yml
 
 # Official utils
-- name: Install wrappers
-  import_tasks: tasks/postgres-extensions/25-wrappers.yml
+# - name: Install wrappers
+#   import_tasks: tasks/postgres-extensions/25-wrappers.yml
 
 # - name: Verify async task status
 #   import_tasks: tasks/postgres-extensions/99-finish_async_tasks.yml
